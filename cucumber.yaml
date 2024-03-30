@@ -1,0 +1,14 @@
+default:
+  requireModule:
+    - ts-node/register
+    - tsconfig-paths/register
+  require:
+    - ./api/**/**/*.ts
+  paths:
+    - ./api/**/**/*.feature
+  format:
+    - html:reports/cucumber-report.html
+
+  publish: false
+  retry: 0
+  parallel: 6

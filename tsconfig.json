@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "types": ["@types/faker"],
+    "target": "ES2022",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "strict": true,
+    "esModuleInterop": true,
+    "paths": {
+      "@automation/*": ["./src/automation/*"]
+    }
+  },
+  "exclude": [
+    "node_modules/@types/glob/index.d.ts"
+  ]
+}

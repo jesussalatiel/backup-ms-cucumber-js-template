@@ -1,0 +1,43 @@
+{
+  "name": "backup-ms-cucumber-js-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "co:login": "aws codeartifact login --tool npm --repository qa --domain rivendell",
+    "compile": "tsc",
+    "prepare": "npm run co:login && husky ",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "npx eslint . --fix --ext .ts",
+    "test:working": "npx cucumber-js --tags @Working",
+    "test": "npx cucumber-js",
+    "test:ci": "npx cucumber-js --tags @HappyPath"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "18.0.0",
+    "husky": "9.0.11",
+    "husky-check-email": "0.0.7",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity-provider": "3.540.0",
+    "@aws-sdk/client-dynamodb": "3.540.0",
+    "@aws-sdk/client-lambda": "3.540.0",
+    "@aws-sdk/client-s3": "3.540.0",
+    "@aws-sdk/lib-dynamodb": "3.540.0",
+    "@cucumber/cucumber": "^10.3.1",
+    "@faker-js/faker": "^8.4.1",
+    "@ihf-rivendell/qa": "0.3.82",
+    "@tsconfig/node18": "^18.2.3",
+    "@types/faker": "^6.6.9",
+    "faker": "^6.6.6",
+    "joi": "17.12.2",
+    "supertest": "^6.3.4"
+  }
+}
