@@ -1,15 +1,18 @@
 {
+  "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
-    "types": ["@types/faker"],
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "types": ["node"],
     "target": "ES2022",
     "module": "commonjs",
     "outDir": "./dist",
     "strict": true,
-    "esModuleInterop": true,
     "paths": {
       "@automation/*": ["./src/automation/*"]
     }
   },
+  "include": ["/**/*.ts"],
   "exclude": [
     "node_modules/@types/glob/index.d.ts"
   ]

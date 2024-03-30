@@ -1,6 +1,6 @@
 import { generateRandomGlobantEmail } from '@automation/assets/Utils';
 
-class RandomValueGenerator {
+class ConfValueGenerator {
   getRandomValueBasedOnHeader(header: string, worldType: any, cell: string):string {
     switch (header) {
       case 'mobile':
@@ -32,4 +32,4 @@ class RandomValueGenerator {
   }
 }
 
-export default new RandomValueGenerator();
+export default new ConfValueGenerator();

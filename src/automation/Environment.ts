@@ -11,7 +11,7 @@ interface ICustomer {
 }
 class Environment {
   async cleanEnvironment(params: ICustomer) {
-    await sleep(1000);
+    await sleep(600);
 
     const identityType = params.identityDocument.type;
     const identityNumber = params.identityDocument.number;

@@ -1,5 +1,5 @@
 import { DataTable } from '@cucumber/cucumber';
-import RandomValueGenerator from '@automation/processor/RandomValueGenerator';
+import RandomValueGenerator from '@automation/processor/ConfValueGenerator';
 
 class BaseDataProcessor {
   static replaceRandomTextFromFields(worldType: any, table: DataTable): DataTable {

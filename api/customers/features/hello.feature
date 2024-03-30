@@ -1,10 +1,9 @@
 Feature: POST /customers
 
   Background: Delete Customer
-    Given there are no existing customers
+    Given I remove a customer with the following params:
       | mobile               | document_type | document_number      |
       | local:default:random | DNI           | local:default:random |
-
 
   @Working
   Scenario: Should no be able to create a customer on Dynamo identity document not exists
@@ -15,6 +14,17 @@ Feature: POST /customers
     Then I request to find a customer using the following params:
       | document_type | document_number      |
       | DNI           | local:default:random |
-    Then I have the following Joi schema:
-      | schemaName     |
+    Then I initiate the JOI validation searching for the schema:
+      | schema_name    |
       | customerSchema |
+    Then API response header "IHF-Correlation-Id" should be a valid UUID
+    Then API response header "Access-Control-Allow-Headers" should contain the following values:
+      | Content_Type           |
+      | X-Amz-Date             |
+      | Authorization          |
+      | X-Api-Key              |
+      | X-Amz-Security-Token   |
+      | X-Amz-User-Agent       |
+      | IHF-Security-Code      |
+
+
