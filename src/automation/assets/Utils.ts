@@ -26,7 +26,7 @@ export const buildFailedOutput = (joiResponse: any, apiResponse: any) => ''
   .concat('\n')
   .concat('-------------------------------------------------------------');
 
-export const generateRandomGlobantEmail = () => {
+export const generateRandomEmail = () => {
   const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
   let username = '';
   const usernameLength = Math.floor(Math.random() * 10) + 5;

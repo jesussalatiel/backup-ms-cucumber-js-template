@@ -9,7 +9,7 @@
     "outDir": "./dist",
     "strict": true,
     "paths": {
-      "@automation/*": ["./src/automation/*"]
+      "@automation/*": ["./src/automation/*"],
     }
   },
   "include": ["/**/*.ts"],

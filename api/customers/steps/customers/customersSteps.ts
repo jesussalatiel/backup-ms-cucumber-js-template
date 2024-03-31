@@ -3,6 +3,8 @@ import {
 } from '@cucumber/cucumber';
 import BaseDataProcessor from '@automation/processor/BaseDataProcessor';
 import { customersRepository } from '@automation/settings/Configurations';
+import { checkStatusCode } from '../validations/validationsSteps';
+import { createCustomerBuilder } from '../../build_requests/CustomerBuilder';
 
 When('I remove a customer with the following params:', async function (customers: DataTable) {
   const table = BaseDataProcessor.replaceRandomTextFromFields(this, customers);
@@ -36,25 +38,14 @@ When('I request to create customer on Dynamo', async function (customers: DataTa
   const rows = table.hashes();
 
   await Promise.all(rows.map(async (row) => {
-    const buildDynamo = {
-      name: row.name,
-      lastName: row.lastName,
-      motherLastName: row.motherLastName,
-      status: 'INVITED',
-      identityDocument: {
-        type: row.document_type,
-        number: row.document_number,
-      },
-    };
+    const customer = await customersRepository.createCustomer(
+      createCustomerBuilder().buildDynamo(row),
+    );
+    this.response = await customersRepository.sendInvitation(
+      customer.body.id,
+      createCustomerBuilder().buildCognito(row),
+    );
 
-    const customer = await customersRepository.createCustomer(buildDynamo);
-
-    const buildCognito = {
-      email: row.email,
-      mobile: row.mobile,
-      status: 'INVITED',
-    };
-
-    this.response = await customersRepository.sendInvitation(customer.body.id, buildCognito);
+    checkStatusCode(this.response.statusCode, Number(row.status_code));
   }));
 });

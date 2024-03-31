@@ -1,4 +1,4 @@
-import { generateRandomGlobantEmail } from '@automation/assets/Utils';
+import { generateRandomEmail } from '@automation/assets/Utils';
 
 class ConfValueGenerator {
   getRandomValueBasedOnHeader(header: string, worldType: any, cell: string):string {
@@ -8,7 +8,7 @@ class ConfValueGenerator {
       case 'document_number':
         return worldType.getRandomIdentityNumber();
       case 'email':
-        return generateRandomGlobantEmail();
+        return generateRandomEmail();
       default:
         return cell;
     }
