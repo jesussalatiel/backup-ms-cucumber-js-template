@@ -10,6 +10,7 @@ cypress/screenshots
 cucumber-report.html
 cucumber-messages.ndjson
 package-lock.json
+reports/*
 ## Visual Studio Code##
 
 ### macOS ###
