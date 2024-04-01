@@ -6,7 +6,7 @@
   "scripts": {
     "co:login": "aws codeartifact login --tool npm --repository qa --domain rivendell",
     "compile": "tsc",
-    "prepare": "npm run co:login && husky ",
+    "prepare": "husky",
     "build": "npx tsc",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "npx eslint . --fix --ext .ts",
