@@ -1,8 +1,8 @@
 import {
   After, AfterAll, AfterStep, Before, BeforeAll, BeforeStep,
 } from '@cucumber/cucumber';
-import { LambdaUtility } from '@automation/settings/LambdaUtility';
-import Environment from '@automation/Environment';
+import Environment from '@automation/config/Environment';
+import { LambdaUtility } from '@automation/config/LambdaUtility';
 
 Before(function () {
 });

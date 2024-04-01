@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateRandomGlobantEmail = exports.buildFailedOutput = exports.generatePhoneNumber = exports.generateIdentityDocument = void 0;
+exports.generateRandomEmail = exports.buildFailedOutput = exports.generatePhoneNumber = exports.generateIdentityDocument = void 0;
 const generateIdentityDocument = () => {
     let identityNumber = '';
     for (let i = 0; i < 8; i += 1) {
@@ -29,7 +29,7 @@ const buildFailedOutput = (joiResponse, apiResponse) => ''
     .concat('\n')
     .concat('-------------------------------------------------------------');
 exports.buildFailedOutput = buildFailedOutput;
-const generateRandomGlobantEmail = () => {
+const generateRandomEmail = () => {
     const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
     let username = '';
     const usernameLength = Math.floor(Math.random() * 10) + 5;
@@ -41,4 +41,4 @@ const generateRandomGlobantEmail = () => {
     const email = `${username}@${domain}`;
     return email;
 };
-exports.generateRandomGlobantEmail = generateRandomGlobantEmail;
+exports.generateRandomEmail = generateRandomEmail;

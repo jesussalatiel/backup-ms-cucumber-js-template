@@ -1,5 +1,5 @@
 import { sleep } from '@ihf-rivendell/qa';
-import { customersRepository } from '@automation/settings/Configurations';
+import { customersRepository } from '@automation/config/repositories';
 import assert from 'assert';
 
 interface ICustomer {

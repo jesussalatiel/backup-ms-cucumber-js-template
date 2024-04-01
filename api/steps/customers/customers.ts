@@ -2,9 +2,9 @@ import {
   DataTable, When,
 } from '@cucumber/cucumber';
 import BaseDataProcessor from '@automation/processor/BaseDataProcessor';
-import { customersRepository } from '@automation/settings/Configurations';
-import { checkStatusCode } from '../validations/validationsSteps';
-import { createCustomerBuilder } from '../../build_requests/CustomerBuilder';
+import { createCustomerBuilder } from '@automation/utils/requests/CustomerBuilder';
+import { checkStatusCode } from '@validations/validations';
+import { customersRepository } from '@automation/config/repositories/index';
 
 When('I remove a customer with the following params:', async function (customers: DataTable) {
   const table = BaseDataProcessor.replaceRandomTextFromFields(this, customers);

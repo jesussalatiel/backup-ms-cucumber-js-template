@@ -1,4 +1,4 @@
-import { customersRepository } from '@automation/settings/Configurations';
+import { customersRepository } from '@automation/config/repositories';
 
 export class LambdaUtility {
   static async warmUpLambda() {

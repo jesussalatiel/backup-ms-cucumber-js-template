@@ -1,10 +1,10 @@
 import { Then, DataTable } from '@cucumber/cucumber';
-import assert from 'assert';
 import { buildFailedOutput } from '@automation/assets/Utils';
 import {
   isValidUUID,
   logger,
 } from '@ihf-rivendell/qa';
+import assert from 'assert';
 
 enum HeaderType {
   IHF_Correlation_Id = 'IHF-Correlation-Id',
@@ -14,7 +14,9 @@ enum HeaderType {
 export const readSchema = async (schemas: DataTable, apiResponse: any) => {
   await Promise.all(schemas.hashes().map(async (row) => {
     try {
-      const { default: schema } = await import(`../../schemas/${row.schema_name}.ts`);
+      const schemaName = `${row.schema_name}.ts`;
+      const schemaPath = `../../schemas/joi/${schemaName}`;
+      const { default: schema } = await import(schemaPath);
       const validationResult = await schema.validate(apiResponse);
 
       if (validationResult.error) {

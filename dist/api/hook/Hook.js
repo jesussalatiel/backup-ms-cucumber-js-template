@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const cucumber_1 = require("@cucumber/cucumber");
+const Environment_1 = __importDefault(require("@automation/config/Environment"));
 const LambdaUtility_1 = require("@automation/config/LambdaUtility");
-const Environment_1 = __importDefault(require("@automation/Environment"));
 (0, cucumber_1.Before)(function () {
 });
 (0, cucumber_1.After)(async function () {

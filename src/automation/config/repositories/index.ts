@@ -14,7 +14,7 @@ import {
   B2B_CLIENT_ID,
 } from '@ihf-rivendell/qa';
 
-const configurations = {
+const index = {
   customers: {
     userPoolId: CUSTOMERS_USER_POOL_ID,
     lambda: 'CustomersLambdaDev',
@@ -61,70 +61,70 @@ export const customersRepository = new CustomersRepository({
   lambdaClient,
   dynamoDbClient,
   cognitoClient,
-  customersLambda: configurations.customers.lambda,
-  customersTable: configurations.customers.table,
-  groupName: configurations.customers.groupName,
+  customersLambda: index.customers.lambda,
+  customersTable: index.customers.table,
+  groupName: index.customers.groupName,
   accountingTable: '',
   customersReniecTable: '',
-  userPoolId: configurations.customers.userPoolId,
+  userPoolId: index.customers.userPoolId,
   applications: {
-    internetBanking: configurations.b2c.personas.clientId,
-    backOffice: configurations.b2b.backoffice.clientId,
+    internetBanking: index.b2c.personas.clientId,
+    backOffice: index.b2b.backoffice.clientId,
     internalOps: '',
   },
-  employeeId: configurations.employees.defaultEmployeeId,
+  employeeId: index.employees.defaultEmployeeId,
 });
 export const cognitoRepository = new CognitoRepository({
   cognitoClient,
-  userPoolId: configurations.customers.userPoolId,
+  userPoolId: index.customers.userPoolId,
   applications: {
-    internetBanking: configurations.b2c.personas.clientId,
-    backOffice: configurations.b2b.backoffice.clientId,
+    internetBanking: index.b2c.personas.clientId,
+    backOffice: index.b2b.backoffice.clientId,
     internalOps: '',
   },
-  employeeId: configurations.employees.defaultEmployeeId,
+  employeeId: index.employees.defaultEmployeeId,
 });
 
 export const leadsRepository = new LeadsRepository({
   lambdaClient,
   dynamoDbClient,
-  leadsLambda: configurations.leads.lambda,
-  leadsTable: configurations.leads.table,
+  leadsLambda: index.leads.lambda,
+  leadsTable: index.leads.table,
   leadsPromotionsTable: '',
   secretId: '',
   applications: {
-    internetBanking: configurations.b2c.personas.clientId,
-    backOffice: configurations.b2b.backoffice.clientId,
+    internetBanking: index.b2c.personas.clientId,
+    backOffice: index.b2b.backoffice.clientId,
     internalOps: '',
   },
-  employeeId: configurations.employees.defaultEmployeeId,
+  employeeId: index.employees.defaultEmployeeId,
 });
 
 export const loansRepository = new LoansRepository({
   dynamoDbClient,
   lambdaClient,
-  loansTable: configurations.loans.table,
-  loansLambda: configurations.loans.lambda,
+  loansTable: index.loans.table,
+  loansLambda: index.loans.lambda,
   loansInstallmentsTable: '',
   loansSimulationsTable: '',
   mambuLoansTable: '',
   applications: {
-    internetBanking: configurations.b2c.personas.clientId,
-    backOffice: configurations.b2b.backoffice.clientId,
+    internetBanking: index.b2c.personas.clientId,
+    backOffice: index.b2b.backoffice.clientId,
     internalOps: '',
   },
-  employeeId: configurations.employees.defaultEmployeeId,
+  employeeId: index.employees.defaultEmployeeId,
 });
 
 export const notificationsRepository = new NotificationsRepository({
   lambdaClient,
   dynamoDbClient,
-  notificationsLambda: configurations.notifications.lambda,
-  cacheTable: configurations.notifications.cacheTable,
+  notificationsLambda: index.notifications.lambda,
+  cacheTable: index.notifications.cacheTable,
   applications: {
-    internetBanking: configurations.b2c.personas.clientId,
-    backOffice: configurations.b2b.backoffice.clientId,
+    internetBanking: index.b2c.personas.clientId,
+    backOffice: index.b2b.backoffice.clientId,
     internalOps: '',
   },
-  employeeId: configurations.employees.defaultEmployeeId,
+  employeeId: index.employees.defaultEmployeeId,
 });

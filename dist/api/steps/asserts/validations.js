@@ -28,9 +28,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkStatusCode = exports.readSchema = void 0;
 const cucumber_1 = require("@cucumber/cucumber");
-const assert_1 = __importDefault(require("assert"));
 const Utils_1 = require("@automation/assets/Utils");
 const qa_1 = require("@ihf-rivendell/qa");
+const assert_1 = __importDefault(require("assert"));
 var HeaderType;
 (function (HeaderType) {
     HeaderType["IHF_Correlation_Id"] = "IHF-Correlation-Id";
@@ -39,7 +39,7 @@ var HeaderType;
 const readSchema = async (schemas, apiResponse) => {
     await Promise.all(schemas.hashes().map(async (row) => {
         try {
-            const { default: schema } = await Promise.resolve(`${`../../schemas/${row.schema_name}.ts`}`).then(s => __importStar(require(s)));
+            const { default: schema } = await Promise.resolve(`${`../../schemas/joi/${row.schema_name}.ts`}`).then(s => __importStar(require(s)));
             const validationResult = await schema.validate(apiResponse);
             if (validationResult.error) {
                 throw new Error((0, Utils_1.buildFailedOutput)(validationResult, apiResponse));

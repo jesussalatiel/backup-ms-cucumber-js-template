@@ -10,6 +10,8 @@
     "strict": true,
     "paths": {
       "@automation/*": ["./src/automation/*"],
+      "@validations/*": ["./api/steps/asserts/*"],
+      "@requests/*": ["./api/test/requests/*"]
     }
   },
   "include": ["/**/*.ts"],
