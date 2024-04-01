@@ -4,18 +4,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const qa_1 = require("@ihf-rivendell/qa");
-const index_1 = require("@automation/config/index");
+const repositories_1 = require("@automation/config/repositories");
 const assert_1 = __importDefault(require("assert"));
 class Environment {
     async cleanEnvironment(params) {
         await (0, qa_1.sleep)(600);
         const identityType = params.identityDocument.type;
         const identityNumber = params.identityDocument.number;
-        const exists = await index_1.customersRepository.findByIdentityDocument(identityType, identityNumber);
+        const exists = await repositories_1.customersRepository.findByIdentityDocument(identityType, identityNumber);
         if (exists.statusCode === 200) {
-            await index_1.customersRepository.deleteByIdentityDocument(identityType, identityNumber);
+            await repositories_1.customersRepository.deleteByIdentityDocument(identityType, identityNumber);
         }
-        const updatedExists = await index_1.customersRepository.findByIdentityDocument(identityType, identityNumber);
+        const updatedExists = await repositories_1.customersRepository.findByIdentityDocument(identityType, identityNumber);
         assert_1.default.ok(updatedExists.statusCode !== 200);
     }
 }

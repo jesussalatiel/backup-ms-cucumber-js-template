@@ -39,7 +39,9 @@ var HeaderType;
 const readSchema = async (schemas, apiResponse) => {
     await Promise.all(schemas.hashes().map(async (row) => {
         try {
-            const { default: schema } = await Promise.resolve(`${`../../schemas/joi/${row.schema_name}.ts`}`).then(s => __importStar(require(s)));
+            const schemaName = `${row.schema_name}.ts`;
+            const schemaPath = `../../schemas/joi/${schemaName}`;
+            const { default: schema } = await Promise.resolve(`${schemaPath}`).then(s => __importStar(require(s)));
             const validationResult = await schema.validate(apiResponse);
             if (validationResult.error) {
                 throw new Error((0, Utils_1.buildFailedOutput)(validationResult, apiResponse));

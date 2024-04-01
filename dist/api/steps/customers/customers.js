@@ -7,7 +7,7 @@ const cucumber_1 = require("@cucumber/cucumber");
 const BaseDataProcessor_1 = __importDefault(require("@automation/processor/BaseDataProcessor"));
 const CustomerBuilder_1 = require("@automation/utils/requests/CustomerBuilder");
 const validations_1 = require("@validations/validations");
-const index_1 = require("@automation/config/index");
+const index_1 = require("@automation/config/repositories/index");
 (0, cucumber_1.When)('I remove a customer with the following params:', async function (customers) {
     const table = BaseDataProcessor_1.default.replaceRandomTextFromFields(this, customers);
     const rows = table.hashes();
